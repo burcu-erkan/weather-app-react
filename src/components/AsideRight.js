@@ -22,6 +22,7 @@ function AsideRight() {
         const currWeatherApi = `http://api.openweathermap.org/data/2.5/weather?q=${currLocationRes.data.city}&appid=107a420b6f4b7dd8c2243eb7a310e6fe`;
         const res = await fetch(currWeatherApi);
         const result = await res.json();
+        console.log(currLocationRes)
         setCurrLocWeatherCond({
           weather: result.weather,
           main: result.main,
@@ -32,9 +33,8 @@ function AsideRight() {
           country: currLocationRes.data.countryCode,
         });
       })
-      .catch((error) => console.error(error));
-  }, []);
 
+  }, []);
   const convertKtoF = (temp) => {
     return Math.floor(((temp - 273.15) * 9) / 5 + 32);
   };
@@ -66,7 +66,7 @@ function AsideRight() {
       <i className={customCl}></i>
       <h1>{convertKtoF(temp)}&deg;</h1>
       {minMaxTemp(temp_min, temp_max)}
-      <h4>{description}</h4>
+      <h4>{description}</h4> 
       <LocalTime />
     </aside>
   );
