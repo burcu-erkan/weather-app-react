@@ -11,13 +11,14 @@ function AsideLeft() {
     name: "",
     sys: { country: "" },
   });
-  const [searchVal, setSearchVal] = useState("");
+  const [searchVal, setSearchVal] = useState("dfd");
   const [error, setError] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [tempType, setTempType] = useState("fahrenheit");
 
   const handleSearch = debounce((e) => {
     setSearchVal(e.target.value);
+   
   }, 500);
 
   const handleFormSubmit = (e) => {
@@ -27,13 +28,16 @@ function AsideLeft() {
       .get(weatherAPI)
       .then((weatherRes) => {
         setShowResult(true);
+      
         setWeatherData({
           weather: weatherRes.data.weather,
           main: weatherRes.data.main,
           name: weatherRes.data.name,
           sys: weatherRes.data.sys,
         });
+        
         setError("");
+      
       })
       .catch((err) => setError(err));
   };
