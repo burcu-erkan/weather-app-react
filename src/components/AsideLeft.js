@@ -11,7 +11,7 @@ function AsideLeft() {
     name: "",
     sys: { country: "" },
   });
-  const [searchVal, setSearchVal] = useState("dfd");
+  const [searchVal, setSearchVal] = useState("");
   const [error, setError] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [tempType, setTempType] = useState("fahrenheit");
@@ -21,9 +21,11 @@ function AsideLeft() {
    
   }, 500);
 
+
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=107a420b6f4b7dd8c2243eb7a310e6fe`;
+    const weatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=107a420b6f4b7dd8c2243eb7a310e6fe`;
     axios
       .get(weatherAPI)
       .then((weatherRes) => {
@@ -41,7 +43,6 @@ function AsideLeft() {
       })
       .catch((err) => setError(err));
   };
-
   const handleTempTypeChange = (e) => {
     setTempType(e.target.value);
   };
