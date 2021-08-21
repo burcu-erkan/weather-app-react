@@ -16,7 +16,7 @@ function AsideRight() {
   });
 
   useEffect(() => {
-    const currLocationAPI = "https://extreme-ip-lookup.com/json/";
+    const currLocationAPI = "http://extreme-ip-lookup.com/json/";
     axios
       .get(currLocationAPI)
   
