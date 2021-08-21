@@ -25,7 +25,7 @@ function AsideLeft() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=${API_key}`;
+    const weatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=${API_key}`;
     axios
       .get(weatherAPI)
       .then((weatherRes) => {
