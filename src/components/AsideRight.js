@@ -20,7 +20,7 @@ function AsideRight() {
     axios
       .get(currLocationAPI)
       .then(async (currLocationRes) => {
-        const currWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${currLocationRes.data.city}&appid=${API_key}`;
+        const currWeatherApi = `http://api.openweathermap.org/data/2.5/weather?q=${currLocationRes.data.city}&appid=${API_key}`;
         const res = await fetch(currWeatherApi);
         const result = await res.json();
        console.log(result,"result");
