@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LocalTime from "./LocalTime";
 import axios from "axios";
+const API_key = "d9f74750265ef9dc89f33cdb37eb1887"
 
 function AsideRight() {
   const [currLocData, setCurrLocData] = useState({
@@ -19,10 +20,11 @@ function AsideRight() {
     axios
       .get(currLocationAPI)
       .then(async (currLocationRes) => {
-        const currWeatherApi = `http://api.openweathermap.org/data/2.5/weather?q=${currLocationRes.data.city}&appid=d9f74750265ef9dc89f33cdb37eb1887`;
+        const currWeatherApi = `http://api.openweathermap.org/data/2.5/weather?q=${currLocationRes.data.city}&appid=${API_key}`;
         const res = await fetch(currWeatherApi);
         const result = await res.json();
-  
+       console.log(result,"result");
+       console.log(currLocationRes)
         setCurrLocWeatherCond({
           weather: result.weather,
           main: result.main,

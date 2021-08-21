@@ -3,7 +3,7 @@ import axios from "axios";
 import { debounce } from "lodash";
 import ResultSection from "./ResultSection";
 import FormSubmit from "./FormSubmit";
-
+const API_key = "d9f74750265ef9dc89f33cdb37eb1887"
 function AsideLeft() {
   const [weatherData, setWeatherData] = useState({
     weather: [{ id: "", description: "" }],
@@ -25,7 +25,7 @@ function AsideLeft() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=d9f74750265ef9dc89f33cdb37eb1887`;
+    const weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${searchVal}&appid=${API_key}`;
     axios
       .get(weatherAPI)
       .then((weatherRes) => {
